@@ -1,0 +1,51 @@
+Syntax:
+
+    const = int64_const | string_const
+
+    text = " " " const{symbols} " " "
+
+    separator = { " " | "\n" | "\t" } 
+
+    primitive_types = int64 | string | intstring
+
+    comment =  "<|" {letter|digit|symbol} "|>"
+
+    rel_op = "==" | "!=" | "<" | "<=" | ">" | ">="
+    
+    arith_op = "+" | "-" | "*" | "/" | "%"
+
+    logic_op = "||" | "&&" | "!"
+
+    assign_op = "=" | "+=" | "-=" | "*=" | "/="	
+
+    val_expr = identifier | const arith_op const | identifier | {val_expr}
+
+    rel_expr = identifier | const | val_expr rel_op identifier | const | val_expr
+
+    logical_expr = rel_expr logic_op rel_expr | {logical_expr}
+
+    func_decl_stmt = "function" "(" identifier | {identifier}{","}  ")"
+
+    func_call = identifier "(" identifier | {identifier}{,} ")"
+    
+    decl_stmt = ( primitive_types identifier "=" const | identifier ) | ( identifier "=" in_stmt )
+
+    decl_stmt_intstring = "intstring" identifier "=" (identifier) | (int64_const string_const)
+
+    intstring_access = identifier ".int" | ".string"
+
+    assign_stmt = identifier assign_op const | identifier | in_stmt
+
+    in_stmt = "input" "(" string_const ")"
+
+    comm_stmt = "<|" text "|>"  
+
+    out_stmt = "cout" "<<" text | identifier
+
+    if_stmt = "if" "(" func_call | val_expr | rel_expr | logical_expr ")" "\n\t" stmt | "else" "\n\t" stmt
+
+    for_stmt = "for" "(" identifier "=" int64 ";" rel_op | logic_op ";" assign_stmt ")" "\n\t" stmt
+
+    return_stmt = "return" identifier | const | rel_op | logic_op
+
+    stmt = decl_stmt | assign_stmt | in_stmt | out_stmt | if_stmt | for_stmt | return_stmt | decl_stmt_intstring | intstring_access 

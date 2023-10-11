@@ -1,0 +1,38 @@
+Alphabet:
+
+"A-Z" ; "a-z" ; "_" ; "0-9" 
+
+Lexic:
+
+    - Special symbols:
+
+        - Operators: 
+        
+                - Arithmetic: "+" ; "-" ; "*" ; "/" ; "%"
+                - Assignment: "=" ; "+=" ; "-=" ; "*=" ; "/="
+                - Relational: "==" ; "!=" ; "<" ; "<=" ; ">" ; ">=" 
+                - Logical: "||" ; "&&" ; "!"
+                - Comment markers: "<|" ; "|>"
+
+        - Separators: "(" ; ")" ; "\n" ; " " ; "\t"
+
+        - Reserved words: int64, string, if, else, for, input, cout, intstring, return, function, true, false
+
+    - Identifiers:
+
+        - Length is at most 256 characters of the alphabet and will start with a letter.
+
+        - identifier = letter | letter{letter}{"_"}{digit} | "_"{letter}{digit}{"_"}
+
+    - Rules:
+
+        - letter = "a"|...|"z"|"A"|...|"Z"
+        - digit = "0"|...|"9"
+	- symbols = "+" | "-" | "*" | "/" | "%" | "=" | "!" | "<" | ">" | "|" | "&" | "\" | "~" | "^" | "$" | "@" |
+                    "#" | ":" | ";" | "\"" | "'" | "?" | "(" | ")" | "{" | "}" | "[" | "]" | "(" | ")" | "," | "_"
+
+    - Constants (to be created exclusively from the int64 or string types):
+
+        - int64_const = digit | {digit} 
+
+        - string_const = {letter|digit|symbols}
