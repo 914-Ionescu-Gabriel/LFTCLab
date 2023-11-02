@@ -5,9 +5,9 @@
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
-namespace TESTBAGP
+namespace TEST
 {
-	TEST_CLASS(TESTBAGP)
+	TEST_CLASS(TEST)
 	{
 	public:
 
