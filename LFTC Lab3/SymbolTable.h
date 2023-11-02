@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string>
+#include <fstream>
 #include <vector>
 
 template <typename T>
@@ -10,9 +11,11 @@ public:
 	SymbolTable();
 	~SymbolTable();
 
+	const std::string stFile = "st.txt";
+
 	std::pair<int, int> GetHashAndIndex(const T& value);
 
-	void SetSymbol(const T& value);
+	void SetSymbol(const T& value, std::ofstream& st);
 
 	bool HasValue(const T& value);
 

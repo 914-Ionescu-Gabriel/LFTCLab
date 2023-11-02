@@ -1,4 +1,5 @@
 #include "SymbolTable.h"
+#include "Scanner.h"
 
 template <typename T>
 SymbolTable<T>::SymbolTable() 
@@ -26,10 +27,16 @@ std::pair<int, int> SymbolTable<T>::GetHashAndIndex(const T& value)
 }
 
 template <typename T>
-void SymbolTable<T>::SetSymbol(const T& value) 
+void SymbolTable<T>::SetSymbol(const T& value, std::ofstream& st)
 {
+    bool toPrint = HasValue(value);
     int hash = HashValue(value);
     table[hash].push_back(Node(value));
+    if (!toPrint)
+    {
+        auto hi = GetHashAndIndex(value);
+        st << "Entry:(Symbol: '" << value << "', Hash: " << hash << ", Index: " << hi.second << ")\n";
+    }
 }
 
 template <typename T>
@@ -72,6 +79,13 @@ int SymbolTable<T>::HashValue(const T& value) {
 
 int main() 
 {
-    SymbolTable<int> intTable;
-    SymbolTable<std::string> stringTable;
+    SymbolTable<int> intConst;
+    SymbolTable<std::string> stringConst;
+    SymbolTable<std::string> idTable;
+    const std::string stFileIgnnore = "stIgnore.txt";
+    std::ofstream sti(stFileIgnnore);
+    intConst.SetSymbol(42, sti);
+    stringConst.SetSymbol("test", sti);
+    idTable.SetSymbol("test", sti);
+    Scanner();
 }

@@ -1,0 +1,21 @@
+function f(x,y)
+	return x>=y
+
+cout<<"Enter a"
+a=input()
+cout<<"Enter b"
+b=input()
+cout<<"Enter c"
+c=input()
+cout<<"Max is:"
+
+if(f(a,b)&&f(a,c))
+	cout>>"a"
+	return 0
+
+if(f(b,a)&&f(b,c))
+	cout<<"b"
+	return 0
+
+cout<<"c"
+return 0
