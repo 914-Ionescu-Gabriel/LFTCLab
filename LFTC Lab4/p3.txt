@@ -1,0 +1,7 @@
+int64 sum=0
+cout<<"Introduce n"
+n=input()
+for(i=0;i<n;i++)
+	sum+=input()
+cout<<sum
+return 0

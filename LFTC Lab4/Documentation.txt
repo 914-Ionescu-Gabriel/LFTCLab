@@ -1,0 +1,19 @@
+The entries contain information regarding the token of each relevant symbol.
+
+The tokenizer parses each line to the line checker where alongside with output file information to be processed. It expecs back a bool value regarding the lexical corecntness of the line.
+
+The line checker function follows the steps:
+	
+	-Checks every substring of the line array in order to find keywords, ids, operators, punctuators.
+	-Operators and punctuators break the substring in order to be processed.
+	-At the presence of any illegal symbols it breaks returning a lexical error flag.
+	-It ignores symbols containd or forming comments.
+	-It checks for illegal keyword formations or any illegal identifier formations resulting in a lexical error flag return.
+	-Prints valid tokens to the pif.txt
+	-Sends any identifiers, integer constants or string constants to be indexed in the appropriate symbol table alongside with the file for the st output.
+	-It checks for any tab characters to be tokenized.
+	-It checks for any " characters on order to form said string constants or return a lexical error in the case of missing closure of the compound.
+	-It makes sure to correctly tokenize coposed operators like >= <= == etc.
+	-It makes use of various utility functions such as validIdentifier, isNumber, isKeyword, isOperator, isPunctuator in order to check such scenarios and achieve forementioned points.
+	-It also makes use of the tokens variable to check for illegal tokens.
+	-The subString function is used in order to break the line array into possible tokens to be checked.
