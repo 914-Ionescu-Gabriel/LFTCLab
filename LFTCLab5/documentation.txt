@@ -1,0 +1,16 @@
+The FiniteAutomaton struct represents a M = (Q,Σ,δ,p,F) finite automaton.
+The Transition struct represents a δ(p,a) = q transition.
+
+The displayElemennts function is used by the main menu to display individual characteristics of the finite automaton read.
+The isSequenceAccepted function takes in the stored finite automaton and an input sequence and check if said sequence is accepted fy the finite automaton.
+The reading of the finite automaton and populating the struct types is done on start from the FA.in file.
+
+The formatting of the FA.in file:
+	states_list = [states_list","] state
+	states = "states=" states_list "\n"
+	alphabet_list = [alphabet_list","] terminal
+	alphabet = "alphabet=" alphabet_list "\n"
+	transition = state " " terminal " " state
+	transitions = "transitions=" transition_list "\n"
+	initialState = "initialState=" state "\n"
+	finalState= "finalState=" states_list
